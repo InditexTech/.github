@@ -8,4 +8,4 @@ Welcome to our space to collaborate on building open source software!
 
 ## Legal
 
-All rights reserved. All copyright, trademarks and all other intellectual property rights in all material or content supplied as part of this overview page shall remain at all times vested in Industria de Diseño Textil, S.A., our subsidiaries or our licensors. You are permitted to use this material only as expressly authorised by us or our licensors. This does not prevent you using other sections of this website, including other content and code, in accordance with GitHubs’ terms of service.
+All rights reserved. All copyright, trademarks and all other intellectual property rights in all material or content supplied as part of this overview page shall remain at all times vested in Industria de Diseño Textil, S.A., our subsidiaries or our licensors. You are permitted to use this material only as expressly authorised by us or our licensors. This does not prevent you using other sections of this website, including other content and code, in accordance with GitHub's terms of service.
