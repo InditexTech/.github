@@ -1,0 +1,69 @@
+name: Check Signed-Off-By
+
+on:
+  workflow_call:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  signoff-check:
+    runs-on: ubuntu-latest
+    name: Check Signed-Off-By
+
+    steps:
+      - name: Generate app token
+        id: generate-token
+        uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4
+        with:
+          application_id: ${{ vars.IT_SO_CHK_APP_ID }}
+          application_private_key: ${{ secrets.IT_SO_CHK_PKEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+          repository: InditexTech/cla-checker
+          sparse-checkout: |
+            data-collector.js
+            signoff-checker.js
+            errors.js
+            comment-writer.js
+            templates/
+            domains-allowed.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Install dependencies
+        run: npm install js-yaml handlebars
+
+      - name: Collect PR Data
+        id: collect-data
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          script: |
+            const script = require('./data-collector.js')
+            await script({ github, context, core })
+
+      - name: Check Signoffs
+        id: check-signoffs
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          script: |
+            const script = require('./signoff-checker.js')
+            await script({ core })
+        env:
+          INPUT_PR-DATA: ${{ steps.collect-data.outputs.pr-data }}
+
+      - name: Generate PR Comment
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          script: |
+            const script = require('./comment-writer.js')
+            await script({ github, context, core })
+        env:
+          INPUT_PR-DATA: ${{ steps.collect-data.outputs.pr-data }}
+          INPUT_SIGNOFF-VALID: ${{ steps.check-signoffs.outputs.signoff-valid }}
+          INPUT_SIGNOFF-PROBLEMS: ${{ steps.check-signoffs.outputs.signoff-problems }}
