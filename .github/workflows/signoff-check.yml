@@ -2,7 +2,7 @@ name: Check Signed-Off-By
 
 on:
   workflow_call:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
 
 jobs:
