@@ -1,4 +1,4 @@
-![InditexTech banner, a carrousel showing tech and fashion images.](./banner.png)
+![InditexTech banner, a carrousel showing tech and fashion images.](./banner.jpg)
 
 # :wave: Welcome to the Inditex Tech free, open source software
 
