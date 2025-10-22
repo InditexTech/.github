@@ -1,3 +1,5 @@
+![InditexTech banner, a carrousel showing tech and fashion images.](./banner.png)
+
 # :wave: Welcome to the Inditex Tech free, open source software
 
 Inditex is an international fashion firm that has always had collaboration, innovation, and technology as fundamental elements in its business model.
