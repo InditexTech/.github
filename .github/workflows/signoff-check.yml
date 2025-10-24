@@ -23,14 +23,6 @@ jobs:
         with:
           token: ${{ steps.generate-token.outputs.token }}
           repository: InditexTech/cla-checker
-          sparse-checkout: |
-            data-collector.js
-            signoff-checker.js
-            errors.js
-            comment-writer.js
-            templates/
-            domains-allowed.yml
-          sparse-checkout-cone-mode: false
 
       - name: Install dependencies
         run: npm install js-yaml handlebars
