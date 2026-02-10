@@ -1,4 +1,4 @@
-name: Check Signed-Off-By
+name: Check Signed-Off-By (testing)
 
 on:
   workflow_call:
