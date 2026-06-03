@@ -11,24 +11,49 @@ jobs:
     name: Check Signed-Off-By
 
     steps:
+      # Allow bots that open PRs automatically (e.g. right after a merge) to
+      # bypass the Signed-Off-By check. We require BOTH the PR author AND the
+      # event sender to be bots, so a human editing a bot's PR from the web
+      # (a `synchronize` event whose sender is a user) is NOT allowed to bypass.
+      - name: Determine bot bypass
+        id: bot-check
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const sender = context.payload.sender;
+            const authorIsBot = pr?.user?.type === 'Bot';
+            const senderIsBot = sender?.type === 'Bot';
+            const bypass = Boolean(pr) && authorIsBot && senderIsBot;
+            if (bypass) {
+              core.info(`Bypassing Signed-Off-By check: PR opened by bot '${pr.user.login}' (sender '${sender.login}').`);
+            } else if (pr) {
+              core.info(`Running Signed-Off-By check: authorIsBot=${authorIsBot}, senderIsBot=${senderIsBot}.`);
+            }
+            core.setOutput('bypass', bypass);
+
       - name: Generate app token
         id: generate-token
+        if: steps.bot-check.outputs.bypass != 'true'
         uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4
         with:
           application_id: ${{ vars.IT_SO_CHK_APP_ID }}
           application_private_key: ${{ secrets.IT_SO_CHK_PKEY }}
 
       - name: Checkout
+        if: steps.bot-check.outputs.bypass != 'true'
         uses: actions/checkout@v5
         with:
           token: ${{ steps.generate-token.outputs.token }}
           repository: InditexTech/cla-checker
 
       - name: Install dependencies
+        if: steps.bot-check.outputs.bypass != 'true'
         run: npm install js-yaml handlebars
 
       - name: Collect PR Data
         id: collect-data
+        if: steps.bot-check.outputs.bypass != 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
@@ -38,6 +63,7 @@ jobs:
 
       - name: Check Signoffs
         id: check-signoffs
+        if: steps.bot-check.outputs.bypass != 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
@@ -48,7 +74,7 @@ jobs:
           INPUT_PR-DATA: ${{ steps.collect-data.outputs.pr-data }}
 
       - name: Generate PR Comment
-        if: always()
+        if: always() && steps.bot-check.outputs.bypass != 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
