@@ -4,7 +4,7 @@
 
 ![Where fashion meets code. Open tools, libraries and ideas for fashion retail technology](./where-fashion-meets-code.webp)
 
-[![Website](https://img.shields.io/badge/Website-opensource.inditex.com-0A0A0A?style=flat-square)](https://opensource.inditex.com) [![License](https://img.shields.io/badge/License-Apache%202.0-0A0A0A?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0) [![Contact](https://img.shields.io/badge/Contact-oso%40inditex.com-0A0A0A?style=flat-square)](mailto:oso@inditex.com) [![Careers](https://img.shields.io/badge/Careers-talent.inditexpeople.com-0A0A0A?style=flat-square)](https://talent.inditexpeople.com) [![Read our Tech Blog](https://img.shields.io/badge/Read%20our-Tech%20Blog-0A0A0A?style=flat-square)](https://medium.com/@InditexTech)
+[![Website](https://img.shields.io/badge/Website-opensource.inditex.com-0406BD?style=flat-square&labelColor=EBEDF0)](https://opensource.inditex.com) [![License](https://img.shields.io/badge/License-Apache%202.0-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.apache.org/licenses/LICENSE-2.0) [![Contact](https://img.shields.io/badge/Contact-oso%40inditex.com-0406BD?style=flat-square&labelColor=EBEDF0)](mailto:oso@inditex.com) [![Careers](https://img.shields.io/badge/Careers-talent.inditexpeople.com-0406BD?style=flat-square&labelColor=EBEDF0)](https://talent.inditexpeople.com) [![Read our Tech Blog](https://img.shields.io/badge/Read%20our-Tech%20Blog-0406BD?style=flat-square&labelColor=EBEDF0)](https://medium.com/@InditexTech)
 
 </div>
 
@@ -46,6 +46,6 @@ Have a question, an idea, or want to collaborate? Write to us at [oso@inditex.co
 
 <div align="center">
 
-Built by the Open Source Office · From A Coruña to the world
+<sub>Built by the Open Source Office · From A Coruña to the world</sub>
 
 </div>
