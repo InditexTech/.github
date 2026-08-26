@@ -6,11 +6,6 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 
-# Least privilege for the default GITHUB_TOKEN. This workflow runs on
-# `pull_request_target`, so its token is created in the context of the base repo;
-# every step that reads the API, checks out code or posts the comment uses the
-# scoped GitHub App token generated below instead, so the default token needs no
-# permissions at all. Denying them removes it as an asset to any injected code.
 permissions: {}
 
 jobs:
@@ -19,10 +14,6 @@ jobs:
     name: Check Signed-Off-By
 
     steps:
-      # Allow bots that open PRs automatically (e.g. right after a merge) to
-      # bypass the Signed-Off-By check. We require BOTH the PR author AND the
-      # event sender to be bots, so a human editing a bot's PR from the web
-      # (a `synchronize` event whose sender is a user) is NOT allowed to bypass.
       - name: Determine bot bypass
         id: bot-check
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
