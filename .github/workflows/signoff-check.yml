@@ -45,20 +45,10 @@ jobs:
         with:
           token: ${{ steps.generate-token.outputs.token }}
           repository: InditexTech/cla-checker
-          # Do not leave the app token in the checkout's git config; no later step
-          # performs git operations, and the API/token uses below pass it explicitly.
           persist-credentials: false
 
       - name: Install dependencies
         if: steps.bot-check.outputs.bypass != 'true'
-        # Pin the direct dependencies to exact versions so a compromised or
-        # unexpected newer release cannot enter this privileged job. (Follow-up:
-        # a committed package-lock.json + `npm ci` would also pin transitives.)
-        #
-        # Force the public npm registry explicitly: this privileged job must
-        # resolve these packages from a known source, never from a private
-        # registry that a stray .npmrc, an org runner default or an
-        # NPM_CONFIG_REGISTRY value could otherwise redirect it to.
         run: npm install --no-save --registry=https://registry.npmjs.org/ js-yaml@4.1.0 handlebars@4.7.8
 
       - name: Collect PR Data
