@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 INDUSTRIA DE DISEÑO TEXTIL S.A. (INDITEX S.A.)
+# SPDX-License-Identifier: Apache-2.0
+
 name: Check Signed-Off-By
 
 on:
@@ -6,19 +9,17 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 
+permissions: {}
+
 jobs:
   signoff-check:
     runs-on: ubuntu-latest
     name: Check Signed-Off-By
 
     steps:
-      # Allow bots that open PRs automatically (e.g. right after a merge) to
-      # bypass the Signed-Off-By check. We require BOTH the PR author AND the
-      # event sender to be bots, so a human editing a bot's PR from the web
-      # (a `synchronize` event whose sender is a user) is NOT allowed to bypass.
       - name: Determine bot bypass
         id: bot-check
-        uses: actions/github-script@v6
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             const pr = context.payload.pull_request;
@@ -43,19 +44,20 @@ jobs:
 
       - name: Checkout
         if: steps.bot-check.outputs.bypass != 'true'
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           token: ${{ steps.generate-token.outputs.token }}
           repository: InditexTech/cla-checker
+          persist-credentials: false
 
       - name: Install dependencies
         if: steps.bot-check.outputs.bypass != 'true'
-        run: npm install js-yaml handlebars
+        run: npm install --no-save --registry=https://registry.npmjs.org/ js-yaml@4.1.0 handlebars@4.7.8
 
       - name: Collect PR Data
         id: collect-data
         if: steps.bot-check.outputs.bypass != 'true'
-        uses: actions/github-script@v6
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
@@ -65,7 +67,7 @@ jobs:
       - name: Check Signoffs
         id: check-signoffs
         if: steps.bot-check.outputs.bypass != 'true'
-        uses: actions/github-script@v6
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
@@ -76,7 +78,7 @@ jobs:
 
       - name: Generate PR Comment
         if: always() && steps.bot-check.outputs.bypass != 'true'
-        uses: actions/github-script@v6
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
