@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[Tech Blog](https://medium.com/@InditexTech) · [Zara Talent](https://www.zaratalent.com/en/tech/) · [FOSS Manifesto](https://github.com/InditexTech/foss/blob/main/MANIFESTO.md)
+[Tech Blog](https://medium.com/@InditexTech) · [Talent](https://talent.inditexpeople.com/en/tech/) · [FOSS Manifesto](https://github.com/InditexTech/foss/blob/main/MANIFESTO.md)
 
 </div>
 
