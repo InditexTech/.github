@@ -1,0 +1,14 @@
+.github/workflows/signoff-check.yml
+  h_e3804906c674bd 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "50cf7d42966f0b4a7a9086a7a629d6f909999516",
+  "prompts": {},
+  "humans": {
+    "h_e3804906c674bd": {
+      "author": "Ivan Alvarez Sabin <ivanasabi@ext.inditex.com>"
+    }
+  }
+}

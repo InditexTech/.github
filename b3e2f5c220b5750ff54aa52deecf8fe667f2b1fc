@@ -1,0 +1,20 @@
+.github/workflows/signoff-check.yml
+  s_14c16b551c5418::t_c897003ba1e696 14-34,37,44,51,56
+  s_14c16b551c5418::t_4adb833efcdafb 66,77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "b3e2f5c220b5750ff54aa52deecf8fe667f2b1fc",
+  "prompts": {},
+  "sessions": {
+    "s_14c16b551c5418": {
+      "agent_id": {
+        "tool": "github-copilot-jetbrains",
+        "id": "1780473179215",
+        "model": "unknown"
+      },
+      "human_author": "Adria Berge Aguilar <adriaba@ext.inditex.com>"
+    }
+  }
+}
