@@ -1,9 +1,15 @@
+# SPDX-FileCopyrightText: 2026 INDUSTRIA DE DISEÑO TEXTIL S.A. (INDITEX S.A.)
+# SPDX-License-Identifier: Apache-2.0
+
 name: Check Signed-Off-By
 
 on:
   workflow_call:
+  workflow_dispatch:
   pull_request_target:
     types: [opened, synchronize, reopened]
+
+permissions: {}
 
 jobs:
   signoff-check:
@@ -11,25 +17,47 @@ jobs:
     name: Check Signed-Off-By
 
     steps:
+      - name: Determine bot bypass
+        id: bot-check
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const sender = context.payload.sender;
+            const authorIsBot = pr?.user?.type === 'Bot';
+            const senderIsBot = sender?.type === 'Bot';
+            const bypass = Boolean(pr) && authorIsBot && senderIsBot;
+            if (bypass) {
+              core.info(`Bypassing Signed-Off-By check: PR opened by bot '${pr.user.login}' (sender '${sender.login}').`);
+            } else if (pr) {
+              core.info(`Running Signed-Off-By check: authorIsBot=${authorIsBot}, senderIsBot=${senderIsBot}.`);
+            }
+            core.setOutput('bypass', bypass);
+
       - name: Generate app token
         id: generate-token
+        if: steps.bot-check.outputs.bypass != 'true'
         uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4
         with:
           application_id: ${{ vars.IT_SO_CHK_APP_ID }}
           application_private_key: ${{ secrets.IT_SO_CHK_PKEY }}
 
       - name: Checkout
-        uses: actions/checkout@v5
+        if: steps.bot-check.outputs.bypass != 'true'
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           token: ${{ steps.generate-token.outputs.token }}
           repository: InditexTech/cla-checker
+          persist-credentials: false
 
       - name: Install dependencies
-        run: npm install js-yaml handlebars
+        if: steps.bot-check.outputs.bypass != 'true'
+        run: npm install --no-save --registry=https://registry.npmjs.org/ js-yaml@4.1.0 handlebars@4.7.8
 
       - name: Collect PR Data
         id: collect-data
-        uses: actions/github-script@v6
+        if: steps.bot-check.outputs.bypass != 'true'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
@@ -38,7 +66,8 @@ jobs:
 
       - name: Check Signoffs
         id: check-signoffs
-        uses: actions/github-script@v6
+        if: steps.bot-check.outputs.bypass != 'true'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
@@ -48,8 +77,8 @@ jobs:
           INPUT_PR-DATA: ${{ steps.collect-data.outputs.pr-data }}
 
       - name: Generate PR Comment
-        if: always()
-        uses: actions/github-script@v6
+        if: always() && steps.bot-check.outputs.bypass != 'true'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
