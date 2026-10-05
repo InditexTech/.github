@@ -16,7 +16,7 @@
 
 <br>
 
-### <span style="color:#0406BD">[OUR MISSION]</span>
+### [OUR MISSION]
 
 From our commitment to offer superior quality, greater efficiency, and more sustainable processes in every phase of our activity, Inditex considers **Free and Open Source Software (FOSS) a relevant path for the future**.
 
@@ -24,7 +24,7 @@ We believe the best technology is built in the open. That is why we publish the 
 
 <br>
 
-### <span style="color:#0406BD">[HOW TO CONTRIBUTE]</span>
+### [HOW TO CONTRIBUTE]
 
 Our projects are open to everyone, whether you want to report a bug, suggest an improvement, or submit code. **The best place to start is the README of the project you are interested in**. Each repository documents its own scope, setup, and the kind of contributions it is looking for.
 
@@ -37,13 +37,13 @@ When you contribute for the first time, you will be asked to sign our [Contribut
 
 <br>
 
-### <span style="color:#0406BD">[GOVERNANCE]</span>
+### [GOVERNANCE]
 
 Our open source activity is coordinated by Inditex's **Open Source Office (OSO)**. Every project published under this organization goes through a review before release to make sure it meets our quality, licensing, and security standards.
 
 <br>
 
-### <span style="color:#0406BD">[GET IN TOUCH]</span>
+### [GET IN TOUCH]
 
 Have a question, an idea, or want to collaborate? Write to us at [oso@inditex.com](mailto:oso@inditex.com) or [open an issue](https://github.com/InditexTech/foss/issues) in our FOSS repository, and a member of our team will get back to you.
 
