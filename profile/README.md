@@ -20,7 +20,7 @@
 
 From our commitment to offer superior quality, greater efficiency, and more sustainable processes in every phase of our activity, Inditex considers **Open Source Software as a relevant path for the future**.
 
-We believe the best technology is built in the open. That is why we publish the projects we think can help others, give back to the communities whose work powers our own innovation, and engage with contributors transparently and respectfully. The values that guide everything we release are set out in our [FOSS Manifesto](https://github.com/InditexTech/foss/blob/main/MANIFESTO.md), and you can follow what our teams are working on in our [tech blog](https://medium.com/@InditexTech).
+We believe the best technology is built in the open. That is why we publish the projects we think can help others, give back to the communities whose work powers our own innovation, and engage with contributors transparently and respectfully. The values that guide everything we release are set out in our [Manifesto](https://github.com/InditexTech/foss/blob/main/MANIFESTO.md), and you can follow what our teams are working on in our [tech blog](https://medium.com/@InditexTech).
 
 <br>
 
