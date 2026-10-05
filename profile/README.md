@@ -1,10 +1,10 @@
 <div align="center">
 
-### Welcome to the Inditex Tech free, open source software
+### Welcome to the Inditex Tech, open source software
 
 ![Where fashion meets code. Open tools, libraries and ideas for fashion retail technology](./where-fashion-meets-code.webp)
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.apache.org/licenses/LICENSE-2.0) [![Contact](https://img.shields.io/badge/Contact-oso%40inditex.com-0406BD?style=flat-square&labelColor=EBEDF0)](mailto:oso@inditex.com) [![Careers](https://img.shields.io/badge/Careers-talent.inditexpeople.com-0406BD?style=flat-square&labelColor=EBEDF0)](https://talent.inditexpeople.com) [![Read our Tech Blog](https://img.shields.io/badge/Read%20our-Tech%20Blog-0406BD?style=flat-square&labelColor=EBEDF0)](https://medium.com/@InditexTech)
+[![License](https://img.shields.io/badge/License-Apache%202.0-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.apache.org/licenses/LICENSE-2.0) [![Contact](https://img.shields.io/badge/Contact-oso%40inditex.com-0406BD?style=flat-square&labelColor=EBEDF0)](mailto:oso@inditex.com) [![Careers](https://img.shields.io/badge/Careers-talent.inditexpeople.com-0406BD?style=flat-square&labelColor=EBEDF0)](https://talent.inditexpeople.com)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 ### [OUR MISSION]
 
-From our commitment to offer superior quality, greater efficiency, and more sustainable processes in every phase of our activity, Inditex considers **Free and Open Source Software (FOSS) a relevant path for the future**.
+From our commitment to offer superior quality, greater efficiency, and more sustainable processes in every phase of our activity, Inditex considers **Open Source Software as a relevant path for the future**.
 
 We believe the best technology is built in the open. That is why we publish the projects we think can help others, give back to the communities whose work powers our own innovation, and engage with contributors transparently and respectfully. The values that guide everything we release are set out in our [FOSS Manifesto](https://github.com/InditexTech/foss/blob/main/MANIFESTO.md), and you can follow what our teams are working on in our [tech blog](https://medium.com/@InditexTech).
 
