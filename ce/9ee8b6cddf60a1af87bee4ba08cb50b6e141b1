@@ -1,0 +1,19 @@
+profile/README.md
+  s_2cf744e9d072b4::t_b597d061051e47 19,27,40,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ce9ee8b6cddf60a1af87bee4ba08cb50b6e141b1",
+  "prompts": {},
+  "sessions": {
+    "s_2cf744e9d072b4": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "18dd4071-8538-4867-88b4-3a122f26028a",
+        "model": "zai-org/GLM-5.3-Flash"
+      },
+      "human_author": "amagan <andreamr@ext.zara.com>"
+    }
+  }
+}
