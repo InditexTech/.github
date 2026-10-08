@@ -1,0 +1,19 @@
+profile/README.md
+  s_2cf744e9d072b4::t_d06e061b15ac0a 3-4,19,27,40,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "74ddbae1ee29a1cca026a2cdb268d897476ed593",
+  "prompts": {},
+  "sessions": {
+    "s_2cf744e9d072b4": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "18dd4071-8538-4867-88b4-3a122f26028a",
+        "model": "unknown"
+      },
+      "human_author": "amagan <andreamr@ext.zara.com>"
+    }
+  }
+}
