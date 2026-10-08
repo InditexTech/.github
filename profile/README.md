@@ -4,7 +4,7 @@
 
 ![Where fashion meets code. Open tools, libraries and ideas for fashion retail technology](./where-fashion-meets-code.webp)
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.apache.org/licenses/LICENSE-2.0) [![Contact](https://img.shields.io/badge/Contact-oso%40inditex.com-0406BD?style=flat-square&labelColor=EBEDF0)](mailto:oso@inditex.com) [![Careers](https://img.shields.io/badge/Careers-inditexpeople.com-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.inditexpeople.com/es/es/joinus)
+[![License](https://img.shields.io/badge/License-Apache%202.0-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.apache.org/licenses/LICENSE-2.0) [![Contact](https://img.shields.io/badge/Contact-oso%40inditex.com-0406BD?style=flat-square&labelColor=EBEDF0)](mailto:oso@inditex.com) [![Careers](https://img.shields.io/badge/Careers-inditexpeople.com-0406BD?style=flat-square&labelColor=EBEDF0)](https://www.inditexpeople.com/es/es/joinus) [![Read our Tech Blog](https://img.shields.io/badge/Read%20our-Tech%20Blog-0406BD?style=flat-square&labelColor=EBEDF0)](https://medium.com/@InditexTech)
 
 </div>
 
